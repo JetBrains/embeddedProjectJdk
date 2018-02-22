@@ -1,0 +1,20 @@
+<!DOCTYPE idea-plugin PUBLIC "Plugin/DTD" "http://plugins.intellij.net/plugin.dtd">
+<idea-plugin>
+  <id>com.jetbrains.embeddedProjectJdk</id>
+  <name>EmbeddedProjectJdk</name>
+  <vendor>JetBrains</vendor>
+  <depends>com.intellij.modules.lang</depends>
+  <idea-version since-build="173.0" />
+  <description><![CDATA[
+This plugin allows put jdk.table.xml into .idea project folder and commit into VCS.
+If JDK with name from per project jdk.table.xml not found or invalid plugin add it automatically.
+  ]]></description>
+
+  <version>1.0</version>
+
+  <application-components>
+    <component>
+      <implementation-class>com.jetbrains.embeddedProjectJdk.EmbeddedProjectJdkProvider</implementation-class>
+    </component>
+  </application-components>
+</idea-plugin>

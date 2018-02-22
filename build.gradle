@@ -1,0 +1,40 @@
+buildscript {
+    ext.kotlin_version = '1.2.0'
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+       classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+plugins {
+    id 'org.jetbrains.intellij' version '0.2.18'
+}
+
+group 'embeddedProjectJdk'
+version buildNumber
+
+apply plugin: 'kotlin'
+
+intellij {
+    version '2017.3'
+    pluginName 'embeddedProjectJdk'
+    intellijRepo 'http://jetbrains-com-mirror.labs.intellij.net/intellij-repository'
+}
+
+publishPlugin {
+    username userName
+    password userPassword
+    host 'https://plugins.jetbrains.com'
+}
+
+patchPluginXml { untilBuild '' }
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+}
