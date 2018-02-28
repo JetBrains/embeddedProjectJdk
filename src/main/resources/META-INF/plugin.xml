@@ -12,6 +12,8 @@ If JDK with name from per project jdk.table.xml not found or invalid plugin add 
 
   <version>1.0</version>
 
+  <depends>com.intellij.modules.java</depends>
+
   <application-components>
     <component>
       <implementation-class>com.jetbrains.embeddedProjectJdk.EmbeddedProjectJdkProvider</implementation-class>
