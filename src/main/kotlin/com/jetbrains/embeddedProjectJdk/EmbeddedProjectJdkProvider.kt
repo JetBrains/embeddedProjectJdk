@@ -54,7 +54,7 @@ class EmbeddedProjectJdkProvider : ApplicationComponent {
             if (!isValidJdk(originJdk)) {
               jdkList.add(jdk)
             } else {
-              myLogger.info("Don't touch JDK: ${jdk.name} because it name exists and valid")
+              myLogger.info("Don't touch JDK: \"${jdk.name}\" because it name exists and valid")
             }
           }
           ApplicationManager.getApplication().runWriteAction {
