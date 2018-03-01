@@ -10,6 +10,7 @@ import com.intellij.openapi.projectRoots.ProjectJdkTable
 import com.intellij.openapi.projectRoots.Sdk
 import com.intellij.openapi.projectRoots.impl.ProjectJdkImpl
 import com.intellij.openapi.util.JDOMUtil
+import com.intellij.openapi.util.SystemInfo
 import org.jdom.filter.ElementFilter
 import java.io.File
 
@@ -27,10 +28,20 @@ class EmbeddedProjectJdkProvider : ApplicationComponent {
 
       override fun projectOpened(project: Project?) {
         if (project != null) {
-          val perProjectJdkTableFile =
-            File(project.baseDir.canonicalPath).resolve(".idea").resolve("jdk.table.xml")
+          val ideaFolder = File(project.baseDir.canonicalPath).resolve(".idea")
+          val allOsFile = ideaFolder.resolve("jdk.table.xml")
+          val windowsFile = ideaFolder.resolve("jdk.table.win.xml")
+          val linuxFile = ideaFolder.resolve("jdk.table.lin.xml")
+          val macFile = ideaFolder.resolve("jdk.table.mac.xml")
+          val perProjectJdkTableFile = when {
+            SystemInfo.isWindows && windowsFile.exists() -> windowsFile
+            SystemInfo.isLinux && linuxFile.exists() -> linuxFile
+            SystemInfo.isMac && macFile.exists() -> macFile
+            else -> allOsFile
+          }
           if (!perProjectJdkTableFile.exists() || !perProjectJdkTableFile.isFile)
             return
+
           val projectBaseDir = project.baseDir.canonicalPath ?: return
           val projectJdkTable = ProjectJdkTable.getInstance()
 
