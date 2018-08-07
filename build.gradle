@@ -1,5 +1,5 @@
 buildscript {
-  ext.kotlin_version = '1.2.0'
+  ext.kotlin_version = '1.2.60'
   repositories {
     mavenCentral()
   }
@@ -9,7 +9,7 @@ buildscript {
 }
 
 plugins {
-  id 'org.jetbrains.intellij' version '0.2.18'
+  id 'org.jetbrains.intellij' version '0.3.5'
 }
 
 group 'embeddedProjectJdk'
@@ -40,6 +40,6 @@ dependencies {
 }
 
 wrapper {
-  gradleVersion = '4.6-rc-2'
-  distributionType = Wrapper.DistributionType.BIN
+  gradleVersion = '4.9'
+  distributionType = Wrapper.DistributionType.ALL
 }
