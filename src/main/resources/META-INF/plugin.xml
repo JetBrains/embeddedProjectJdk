@@ -6,12 +6,13 @@
   <depends>com.intellij.modules.lang</depends>
   <idea-version since-build="173.0" />
   <description><![CDATA[
-This plugin allows put jdk.table.xml into .idea project folder and commit into VCS.
-If JDK with name from per project jdk.table.xml not found or invalid plugin add it automatically.
-You can create os dependent JDK table files:
-  - Windows: jdk.table.win.xml
-  - Linux: jdk.table.lin.xml
-  - macOS: jdk.table.mac.xml
+This plugin allows you to put the <code>jdk.table.xml</code> file (stored in <code><IDE_INSTALLATION_DIRECTORY>/config/options/config/options/jdk.table.xml</code> by default), into the project folder and commit to VCS. If the JDK defined in the per project <code><PROJECT_DIR>/.idea/jdk.table.xml</code> is not found or invalid, then the plugin will it automatically.
+
+You can also define OS-dependent <code>.idea/jdk.table.*.xml</code> files like so:
+
+  - Windows: <code>jdk.table.win.xml</code>
+  - Linux: <code>jdk.table.lin.xml</code>
+  - MacOS: <code>jdk.table.mac.xml</code>
   ]]></description>
 
   <version>1.1</version>
