@@ -23,9 +23,10 @@ val buildNumber: String by rootProject.extra
 version = buildNumber
 
 intellij {
-  version = "2017.3"
+  version = "2019.3"
   pluginName = "embeddedProjectJdk"
   updateSinceUntilBuild = true
+  setPlugins("java")
 }
 
 val patchPluginXml: PatchPluginXmlTask by tasks
