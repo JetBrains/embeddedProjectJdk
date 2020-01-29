@@ -13,8 +13,8 @@ You can also define OS-dependent <code>.idea/jdk.table.*.xml</code> files like s
   - Linux: <code>jdk.table.lin.xml</code>
   - MacOS: <code>jdk.table.mac.xml</code>
   ]]></description>
-
-  <version>1.1</version>
+  <resource-bundle>messages</resource-bundle>
+  <version>2.0</version>
 
   <depends>com.intellij.modules.java</depends>
 

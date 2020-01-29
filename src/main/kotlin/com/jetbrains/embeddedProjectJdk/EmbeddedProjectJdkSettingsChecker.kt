@@ -12,7 +12,9 @@ import com.intellij.openapi.ui.MessageType
 
 class EmbeddedProjectJdkSettingsChecker : StartupActivity {
   companion object {
-    val PER_PROJECT_JDK_SETTINGS = NotificationGroup.toolWindowGroup("Per Project JDK Settings", "PerProjectJdkSettings")
+    val PER_PROJECT_JDK_SETTINGS =
+      NotificationGroup.toolWindowGroup("Per Project JDK Settings", "PerProjectJdkSettings")
+    const val LOAD_SETTINGS_ACTION_ID = "LoadJdkSettingsFromProject"
   }
 
   private val myLogger = Logger.getInstance(EmbeddedProjectJdkSettingsChecker::class.java)
@@ -21,10 +23,10 @@ class EmbeddedProjectJdkSettingsChecker : StartupActivity {
     myLogger.debug("Handle before project loaded event")
     if (JdkUtil.hasDifferentJdkSettings(project)) {
       PER_PROJECT_JDK_SETTINGS
-        .createNotification("You have different JDK settings for project", MessageType.WARNING)
-        .addAction(object : NotificationAction(PluginBundle.message("notification.action.text")) {
+        .createNotification(Messages.message("notification.text"), MessageType.WARNING)
+        .addAction(object : NotificationAction(Messages.message("notification.action.text")) {
           override fun actionPerformed(e: AnActionEvent, notification: Notification) {
-            ActionManager.getInstance().getAction("LoadJdkSettingsFromProject").actionPerformed(e)
+            ActionManager.getInstance().getAction(LOAD_SETTINGS_ACTION_ID).actionPerformed(e)
             notification.expire()
           }
         }).notify(project)

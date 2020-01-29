@@ -10,10 +10,6 @@ import com.intellij.openapi.projectRoots.ProjectJdkTable
 class LoadJdkSettingsFromProject : AnAction(), DumbAware {
   private val myLogger = Logger.getInstance(EmbeddedProjectJdkSettingsChecker::class.java)
 
-  init {
-    templatePresentation.text = PluginBundle.message("notification.action.text")
-  }
-
   override fun update(e: AnActionEvent) {
     e.presentation.isEnabled = e.project?.let { JdkUtil.hasProjectJdkSettings(it) } ?: false
   }
