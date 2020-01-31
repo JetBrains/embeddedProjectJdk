@@ -35,6 +35,8 @@ object JdkUtil {
   }
 
   fun hasDifferentJdkSettings(project: Project): Boolean {
+    if (hasProjectJdkSettings(project).not())
+      return false
     val jdkList = readProjectJdkSettings(project)
     if (jdkList.isEmpty()) return false
     val projectJdkTable = ProjectJdkTable.getInstance()
