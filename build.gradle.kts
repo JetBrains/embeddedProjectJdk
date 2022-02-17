@@ -13,7 +13,7 @@ buildscript {
 
 plugins {
   id("me.filippov.gradle.jvm.wrapper") version "0.9.3"
-  id("org.jetbrains.intellij") version "0.4.13"
+  id("org.jetbrains.intellij") version "1.4.0"
 }
 
 apply(plugin = "kotlin")
@@ -23,14 +23,14 @@ val buildNumber: String by rootProject.extra
 version = buildNumber
 
 intellij {
-  version = "2019.3"
-  pluginName = "embeddedProjectJdk"
-  updateSinceUntilBuild = true
-  setPlugins("java")
+  version.set("2021.1")
+  pluginName.set("embeddedProjectJdk")
+  updateSinceUntilBuild.set(true)
+  plugins.set(listOf("java"))
 }
 
 val patchPluginXml: PatchPluginXmlTask by tasks
-patchPluginXml.setUntilBuild("")
+patchPluginXml.untilBuild.set("")
 
 repositories {
   mavenCentral()
