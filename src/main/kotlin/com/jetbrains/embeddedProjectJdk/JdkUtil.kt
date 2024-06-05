@@ -3,8 +3,8 @@ package com.jetbrains.embeddedProjectJdk
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.projectRoots.ProjectJdkTable
 import com.intellij.openapi.projectRoots.Sdk
-import com.intellij.openapi.projectRoots.impl.JavaSdkImpl
 import com.intellij.openapi.projectRoots.impl.ProjectJdkImpl
+import com.intellij.openapi.projectRoots.impl.UnknownSdkType
 import com.intellij.openapi.util.JDOMUtil
 import com.intellij.openapi.util.SystemInfo
 import org.jdom.filter2.ElementFilter
@@ -58,7 +58,7 @@ object JdkUtil {
     val element = JDOMUtil.load(perProjectJdkTableFile.readText().replace("\$PROJECT_DIR\$", projectBaseDir))
     val jdkList = mutableListOf<Sdk>()
     for (jdkElement in element.getDescendants(ElementFilter("jdk"))) {
-      val jdk = ProjectJdkImpl("", JavaSdkImpl())
+      val jdk = ProjectJdkImpl("", UnknownSdkType.getInstance("stub"))
       jdk.readExternal(jdkElement)
       jdkList.add(jdk)
     }

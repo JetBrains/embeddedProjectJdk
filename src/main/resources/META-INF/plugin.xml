@@ -3,7 +3,7 @@
   <name>EmbeddedProjectJdk</name>
   <vendor>JetBrains</vendor>
   <depends>com.intellij.modules.lang</depends>
-  <idea-version since-build="211.0" />
+  <idea-version since-build="232.0" />
   <description><![CDATA[
 This plugin allows you to put the <code>jdk.table.xml</code> file (stored in <code><IDE_INSTALLATION_DIRECTORY>/config/options/config/options/jdk.table.xml</code> by default), into the project folder and commit to VCS. If the JDK defined in the per project <code><PROJECT_DIR>/.idea/jdk.table.xml</code> is not found or invalid, then the plugin will it automatically.
 
@@ -15,8 +15,6 @@ You can also define OS-dependent <code>.idea/jdk.table.*.xml</code> files like s
   ]]></description>
   <resource-bundle>messages</resource-bundle>
   <version>2.0</version>
-
-  <depends>com.intellij.modules.java</depends>
 
   <extensions defaultExtensionNs="com.intellij">
     <notificationGroup id="Per Project JDK Settings" displayType="BALLOON"/>

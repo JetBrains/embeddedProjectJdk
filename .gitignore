@@ -9,11 +9,5 @@
 # IDEA
 *.iml
 .idea/*
-!.idea/externalDependencies.xml
-!.idea/vcs.xml
-!.idea/compiler.xml
-!.idea/gradle.xml
-!.idea/kotlinc.xml
 !.idea/runConfigurations/
 !.idea/dictionaries/
-!.idea/codeStyles/

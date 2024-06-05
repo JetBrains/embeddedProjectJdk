@@ -1,5 +1,6 @@
 package com.jetbrains.embeddedProjectJdk
 
+import com.intellij.openapi.actionSystem.ActionUpdateThread
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.application.ApplicationManager
@@ -8,6 +9,11 @@ import com.intellij.openapi.project.DumbAware
 import com.intellij.openapi.projectRoots.ProjectJdkTable
 
 class LoadJdkSettingsFromProject : AnAction(), DumbAware {
+
+  override fun getActionUpdateThread(): ActionUpdateThread {
+    return ActionUpdateThread.BGT
+  }
+
   private val myLogger = Logger.getInstance(EmbeddedProjectJdkSettingsChecker::class.java)
 
   override fun update(e: AnActionEvent) {

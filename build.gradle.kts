@@ -6,6 +6,7 @@ buildscript {
   repositories {
     mavenCentral()
   }
+
   dependencies {
     classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
   }
@@ -23,10 +24,9 @@ val buildNumber: String by rootProject.extra
 version = buildNumber
 
 intellij {
-  version.set("2022.2")
+  version.set("2023.2")
   pluginName.set("embeddedProjectJdk")
   updateSinceUntilBuild.set(true)
-  plugins.set(listOf("java"))
 }
 
 val patchPluginXml: PatchPluginXmlTask by tasks
